@@ -199,6 +199,114 @@ input.apikey:focus{outline:none;border-color:var(--blue-light)}
   .screens{padding-left:70px;padding-bottom:0}
   .nav-btn{padding:14px 0;font-size:9px}
 }
+
+/* ===== SAVINGS MODULE ===== */
+:root{
+  --green:#10B981;--green-light:#059669;--green-dim:#10B98120;--green-glow:#10B98115;
+  --green-dark:#065F46;--green-mid:#047857;
+}
+.screen.savings{padding:0}
+.sav-onboard{position:fixed;inset:0;background:var(--navy);z-index:500;display:flex;flex-direction:column}
+.sav-onboard.hidden{display:none}
+.ob-slides{flex:1;overflow:hidden;position:relative}
+.ob-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;opacity:0;transform:translateX(40px);transition:all .4s}
+.ob-slide.active{opacity:1;transform:translateX(0)}
+.ob-slide.prev{opacity:0;transform:translateX(-40px)}
+.ob-icon{font-size:72px;margin-bottom:20px}
+.ob-title{font-size:22px;font-weight:700;color:var(--text);margin-bottom:12px}
+.ob-desc{font-size:15px;color:var(--text2);line-height:1.6;max-width:300px}
+.ob-dots{display:flex;gap:8px;justify-content:center;padding:20px}
+.ob-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .3s}
+.ob-dot.active{background:var(--green);width:24px;border-radius:4px}
+.ob-btn{margin:0 24px 40px;padding:15px;background:linear-gradient(135deg,var(--green),var(--green-light));color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:var(--font)}
+
+.sav-header{background:linear-gradient(135deg,var(--navy2),#0a2a1a);padding:20px 16px 16px;border-bottom:0.5px solid #1a3a2a}
+.sav-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sav-title{font-size:18px;font-weight:700;color:var(--text)}
+.sav-add-btn{background:var(--green-dim);border:0.5px solid var(--green);border-radius:var(--radius-pill);padding:6px 14px;font-size:13px;font-weight:600;color:var(--green);cursor:pointer;font-family:var(--font)}
+.sav-total-card{background:rgba(16,185,129,0.1);border:0.5px solid var(--green);border-radius:var(--radius);padding:14px 16px}
+.sav-total-lbl{font-size:11px;font-weight:600;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
+.sav-total-val{font-size:28px;font-weight:700;color:var(--green);letter-spacing:-.02em}
+.sav-total-sub{font-size:12px;color:var(--green);opacity:.7;margin-top:3px}
+.sav-body{padding:16px;overflow-y:auto}
+
+.goal-card{background:rgba(17,30,53,0.8);border:0.5px solid var(--border2);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:border-color .2s}
+.goal-card.completed{border-color:var(--green)}
+.goal-img-wrap{position:relative;height:160px;overflow:hidden;cursor:pointer}
+.goal-img{width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(0.6);transition:filter 1s}
+.goal-img.clear{filter:blur(0px) brightness(1)}
+.goal-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a2a1a,#0d3a20)}
+.goal-progress-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.8))}
+.goal-progress-bar-wrap{height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.goal-progress-bar{height:100%;background:linear-gradient(90deg,var(--green),#34D399);border-radius:3px;transition:width 1s cubic-bezier(0.34,1.56,0.64,1)}
+.goal-progress-text{font-size:12px;font-weight:600;color:#fff;display:flex;justify-content:space-between}
+.goal-completed-badge{position:absolute;top:10px;right:10px;background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:var(--radius-pill)}
+.goal-body{padding:14px}
+.goal-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.goal-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.goal-deadline{font-size:12px;color:var(--text3)}
+.goal-deadline.urgent{color:#F59E0B}
+.goal-deadline.overdue{color:#EF4444}
+.goal-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.goal-stat{background:var(--navy3);border-radius:var(--radius-sm);padding:9px;text-align:center}
+.goal-stat-lbl{font-size:10px;color:var(--text3);margin-bottom:3px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.goal-stat-val{font-size:14px;font-weight:700;color:var(--text)}
+.goal-actions{display:flex;gap:8px}
+.goal-action-btn{flex:1;padding:9px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:none;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);color:var(--text2)}
+.goal-action-btn.primary{background:var(--green-dim);border-color:var(--green);color:var(--green)}
+.goal-action-btn.danger{border-color:#EF444433;color:#EF4444}
+
+.piggy-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.piggy-svg{width:80px;height:80px}
+
+.psych-banner{background:rgba(16,185,129,0.08);border:0.5px solid var(--green);border-radius:var(--radius);padding:12px 14px;margin-bottom:14px}
+.psych-text{font-size:13px;color:var(--text2);line-height:1.5}
+.psych-highlight{color:var(--green);font-weight:600}
+
+.level-card{background:rgba(17,30,53,0.8);border:0.5px solid var(--border2);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+.level-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.level-icon{font-size:28px}
+.level-name{font-size:15px;font-weight:700;color:var(--text)}
+.level-sub{font-size:12px;color:var(--text3)}
+.level-bar-wrap{height:6px;background:var(--navy3);border-radius:3px;overflow:hidden}
+.level-bar{height:100%;background:linear-gradient(90deg,var(--green),#34D399);border-radius:3px;transition:width .8s}
+.level-next{font-size:11px;color:var(--text3);margin-top:5px;text-align:right}
+
+.streak-card{background:rgba(17,30,53,0.8);border:0.5px solid var(--border2);border-radius:var(--radius);padding:14px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.streak-icon{font-size:32px}
+.streak-info{flex:1}
+.streak-val{font-size:20px;font-weight:700;color:var(--text)}
+.streak-lbl{font-size:12px;color:var(--text3)}
+
+.compound-card{background:rgba(17,30,53,0.8);border:0.5px solid var(--border2);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+.compound-title{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.compound-rows{}
+.compound-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:0.5px solid var(--border)}
+.compound-row:last-child{border-bottom:none}
+.compound-year{font-size:13px;color:var(--text2)}
+.compound-amt{font-size:14px;font-weight:700;color:var(--green)}
+
+.sav-modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:600;align-items:flex-end;justify-content:center}
+.sav-modal-ov.open{display:flex}
+.sav-modal{background:var(--navy2);border-radius:20px 20px 0 0;width:100%;max-width:430px;padding:20px 16px 48px;border-top:0.5px solid var(--border2);max-height:90vh;overflow-y:auto}
+.sav-modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sav-modal-title{font-size:16px;font-weight:700;color:var(--text)}
+.sav-modal-close{background:none;border:none;cursor:pointer;color:var(--text3);font-size:24px;line-height:1}
+.sav-input{width:100%;padding:12px 14px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);font-size:15px;background:var(--navy);color:var(--text);font-family:var(--font);margin-bottom:10px}
+.sav-input:focus{outline:none;border-color:var(--green)}
+.sav-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;display:block}
+.img-pick-btn{width:100%;padding:40px 12px;border:1px dashed var(--border2);border-radius:var(--radius-sm);background:var(--navy);color:var(--text2);font-size:14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--font);margin-bottom:10px}
+.img-pick-btn svg{width:32px;height:32px;stroke:var(--green);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.img-preview-wrap{position:relative;margin-bottom:10px}
+.img-preview-wrap img{width:100%;border-radius:var(--radius-sm);max-height:180px;object-fit:cover}
+.img-remove{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);border:none;border-radius:50%;width:28px;height:28px;color:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.sav-green-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--green),var(--green-light));color:#fff;border:none;border-radius:16px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:4px}
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:700;display:none}
+.confetti-wrap.show{display:block}
+
+@keyframes confettiFall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* ===== END SAVINGS ===== */
 </style>
 </head>
 <body>
@@ -368,6 +476,77 @@ input.apikey:focus{outline:none;border-color:var(--blue-light)}
   <div style="height:16px"></div>
 </div>
 
+
+<!-- SAVINGS ONBOARDING -->
+<div class="sav-onboard hidden" id="sav-onboard">
+  <div class="ob-slides">
+    <div class="ob-slide active" id="ob-0">
+      <div class="ob-icon">🎯</div>
+      <div class="ob-title">Постави цел</div>
+      <div class="ob-desc">Добави снимка на нещото което искаш. Колкото повече спестяваш — толкова по-ясна става снимката.</div>
+    </div>
+    <div class="ob-slide" id="ob-1">
+      <div class="ob-icon">💰</div>
+      <div class="ob-title">Добавяй всеки месец</div>
+      <div class="ob-desc">След заплата въведи нетната сума. Приложението изчислява колко да сложиш настрана и следи прогреса.</div>
+    </div>
+    <div class="ob-slide" id="ob-2">
+      <div class="ob-icon">🚀</div>
+      <div class="ob-title">Виж бъдещето си</div>
+      <div class="ob-desc">Виж точно кога ще постигнеш целта и как парите ти растат с времето. Малки стъпки, голям резултат.</div>
+    </div>
+  </div>
+  <div class="ob-dots">
+    <div class="ob-dot active" id="ob-dot-0"></div>
+    <div class="ob-dot" id="ob-dot-1"></div>
+    <div class="ob-dot" id="ob-dot-2"></div>
+  </div>
+  <button class="ob-btn" id="ob-next-btn">Напред →</button>
+</div>
+
+<!-- SAVINGS SCREEN -->
+<div class="screen savings" id="sc-sav">
+  <div class="sav-header">
+    <div class="sav-header-top">
+      <div class="sav-title">💚 Спестявания</div>
+      <button class="sav-add-btn" id="sav-add-goal-btn">+ Нова цел</button>
+    </div>
+    <div class="sav-total-card">
+      <div class="sav-total-lbl">Общо спестено</div>
+      <div class="sav-total-val" id="sav-total">€ 0.00</div>
+      <div class="sav-total-sub" id="sav-total-sub"></div>
+    </div>
+  </div>
+  <div class="sav-body" id="sav-body"></div>
+</div>
+
+<!-- GOAL MODAL -->
+<div class="sav-modal-ov" id="sav-goal-modal">
+  <div class="sav-modal">
+    <div class="sav-modal-head">
+      <div class="sav-modal-title" id="sav-modal-title">Нова цел</div>
+      <button class="sav-modal-close" id="sav-modal-close-btn">×</button>
+    </div>
+    <div id="sav-modal-body"></div>
+  </div>
+</div>
+
+<!-- ADD MONEY MODAL -->
+<div class="sav-modal-ov" id="sav-money-modal">
+  <div class="sav-modal">
+    <div class="sav-modal-head">
+      <div class="sav-modal-title" id="sav-money-title">Добави пари</div>
+      <button class="sav-modal-close" id="sav-money-close-btn">×</button>
+    </div>
+    <div id="sav-money-body"></div>
+  </div>
+</div>
+
+<!-- CONFETTI -->
+<div class="confetti-wrap" id="confetti-wrap"></div>
+
+<input type="file" id="sav-img-input" accept="image/*" style="display:none">
+
 </div>
 
 <div class="modal-ov" id="modal">
@@ -381,6 +560,7 @@ input.apikey:focus{outline:none;border-color:var(--blue-light)}
   <button class="nav-btn active" id="nav-welcome"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Начало</button>
   <button class="nav-btn" id="nav-entry"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Запис</button>
   <button class="nav-btn" id="nav-month"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Месец</button>
+  <button class="nav-btn" id="nav-sav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Спести</button>
   <button class="nav-btn" id="nav-hist"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>История</button>
 </nav>
 <div class="toast-w"><div class="toast" id="toast"></div></div>
@@ -389,7 +569,7 @@ input.apikey:focus{outline:none;border-color:var(--blue-light)}
 
 // PASSWORD
 (function(){
-  var PASS = "20262026.";
+  var PASS = "Eeetemi2026.";
   var SESSION_KEY = "dnt6_auth";
   function isAuth(){try{return sessionStorage.getItem(SESSION_KEY)==="1";}catch(e){return false;}}
   function unlock(){
@@ -486,7 +666,7 @@ function mTotal(data,y,m){var t=0;for(var k in data){var d=new Date(k+"T00:00:00
 function mDays(data,y,m){var c=0;for(var k in data){var d=new Date(k+"T00:00:00");if(d.getFullYear()===y&&d.getMonth()===m)c++;}return c;}
 
 function goTab(t){
-  ["welcome","entry","month","hist"].forEach(function(x){
+  ["welcome","entry","month","hist","sav"].forEach(function(x){
     var sc=document.getElementById("sc-"+x);
     var nb=document.getElementById("nav-"+x);
     if(sc)sc.classList.toggle("active",x===t);
@@ -496,6 +676,7 @@ function goTab(t){
   if(t==="hist")renderHist();
   if(t==="welcome")renderWelcome();
   if(t==="entry"){loadDay();setQuote();}
+  if(t==="sav")savGoToTab();
 }
 
 function setQuote(){
@@ -836,12 +1017,362 @@ function checkReminders(){
   else if(h===19&&min===45){rt.textContent="Смяна 2 свършва в 20:00 — запиши прихода!";r.classList.add("show");}
 }
 
+
+// ===== SAVINGS MODULE =====
+var SAV_KEY = "sav_goals_v1";
+var SAV_OB_KEY = "sav_ob_done";
+var savCurrentGoalId = null;
+var savMoneyGoalId = null;
+var savMoneyMode = "add";
+var obStep = 0;
+
+function savDb(){try{return JSON.parse(localStorage.getItem(SAV_KEY)||"[]");}catch(e){return[];}}
+function savSw(d){try{localStorage.setItem(SAV_KEY,JSON.stringify(d));}catch(e){}}
+function savObDone(){try{return localStorage.getItem(SAV_OB_KEY)==="1";}catch(e){return false;}}
+function savObSetDone(){try{localStorage.setItem(SAV_OB_KEY,"1");}catch(e){}}
+
+function savGoToTab(){
+  if(!savObDone()){
+    document.getElementById("sav-onboard").classList.remove("hidden");
+    return;
+  }
+  renderSavings();
+}
+
+// ONBOARDING
+function obNext(){
+  var slides=["ob-0","ob-1","ob-2"];
+  var dots=["ob-dot-0","ob-dot-1","ob-dot-2"];
+  document.getElementById(slides[obStep]).classList.remove("active");
+  document.getElementById(dots[obStep]).classList.remove("active");
+  if(obStep<2){
+    obStep++;
+    document.getElementById(slides[obStep]).classList.add("active");
+    document.getElementById(dots[obStep]).classList.add("active");
+    if(obStep===2)document.getElementById("ob-next-btn").textContent="Започни!";
+  }else{
+    savObSetDone();
+    document.getElementById("sav-onboard").classList.add("hidden");
+    renderSavings();
+  }
+}
+
+// RENDER SAVINGS
+function renderSavings(){
+  var goals=savDb();
+  var totalSaved=goals.reduce(function(a,g){return a+g.saved;},0);
+  document.getElementById("sav-total").textContent=fm(totalSaved);
+  
+  var mth=new Date();
+  var mthTotal=mTotal(db(),mth.getFullYear(),mth.getMonth());
+  if(mthTotal>0){
+    document.getElementById("sav-total-sub").textContent="Тази седмица си изкарал "+fm(mthTotal)+" · Спести поне "+fm(mthTotal*0.2);
+  }
+
+  var body=document.getElementById("sav-body");
+  if(!goals.length){
+    body.innerHTML='<div style="text-align:center;padding:48px 16px"><div style="font-size:60px;margin-bottom:16px">🌱</div><div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px">Нямаш цели още</div><div style="font-size:14px;color:var(--text3);line-height:1.6">Натисни "+ Нова цел" за да започнеш<br>пътуването към финансова свобода</div></div>';
+    return;
+  }
+
+  // Savings streak
+  var streak=savStreak(goals);
+  var levelData=savLevel(goals);
+  
+  // Psychology banner
+  var banner=savPsychBanner(goals,totalSaved);
+  
+  var html="";
+  
+  // Psych banner
+  if(banner)html+='<div class="psych-banner"><div class="psych-text">'+banner+'</div></div>';
+  
+  // Level card
+  html+='<div class="level-card"><div class="level-head"><div class="level-icon">'+levelData.icon+'</div><div><div class="level-name">'+levelData.name+'</div><div class="level-sub">Ниво '+levelData.level+' спестявач</div></div></div><div class="level-bar-wrap"><div class="level-bar" style="width:'+levelData.pct+'%"></div></div><div class="level-next">'+levelData.next+'</div></div>';
+  
+  // Streak
+  html+='<div class="streak-card"><div class="streak-icon">🔥</div><div class="streak-info"><div class="streak-val">'+streak+' месеца поред</div><div class="streak-lbl">Не спирай сега!</div></div></div>';
+
+  // Goals
+  goals.forEach(function(g){
+    var pct=g.target>0?Math.min(Math.round(g.saved/g.target*100),100):0;
+    var remaining=Math.max(g.target-g.saved,0);
+    var completed=pct>=100;
+    
+    // Deadline
+    var deadlineText="",deadlineCls="";
+    if(g.deadline){
+      var dl=new Date(g.deadline),now=new Date(),diff=Math.ceil((dl-now)/(1000*60*60*24));
+      if(diff<0){deadlineText="Просрочено с "+Math.abs(diff)+" дни";deadlineCls="overdue";}
+      else if(diff<=30){deadlineText="Остават "+diff+" дни";deadlineCls="urgent";}
+      else{deadlineText="До "+dl.getDate()+" "+BG_M[dl.getMonth()]+" "+dl.getFullYear();}
+    }
+    
+    // Daily needed
+    var dailyNeeded="";
+    if(!completed&&g.deadline){
+      var daysLeft=Math.ceil((new Date(g.deadline)-new Date())/(1000*60*60*24));
+      if(daysLeft>0)dailyNeeded="€"+Math.ceil(remaining/daysLeft)+"/ден";
+    }
+    
+    // Future self
+    var futureSelf="";
+    if(g.monthlyAvg>0&&!completed){
+      var monthsLeft=Math.ceil(remaining/g.monthlyAvg);
+      var futureDate=new Date();futureDate.setMonth(futureDate.getMonth()+monthsLeft);
+      futureSelf="При текущ темп — готово "+futureDate.getDate()+" "+BG_M[futureDate.getMonth()]+" "+futureDate.getFullYear();
+    }
+    
+    // Image
+    var imgHtml="";
+    if(g.img){
+      var blurAmt=completed?0:Math.max(0,20-pct*0.2);
+      imgHtml='<div class="goal-img-wrap"><img class="goal-img" src="'+g.img+'" style="filter:blur('+blurAmt+'px) brightness('+(completed?1:0.5+pct*0.005)+')">'+(completed?'<div class="goal-completed-badge">✓ Постигнато!</div>':'')+
+        '<div class="goal-progress-overlay"><div class="goal-progress-bar-wrap"><div class="goal-progress-bar" style="width:'+pct+'%"></div></div><div class="goal-progress-text"><span>'+pct+'% разкрито</span><span>'+fm(remaining)+' остават</span></div></div></div>';
+    }else{
+      imgHtml='<div class="goal-img-wrap"><div class="goal-img-placeholder">'+renderPiggy(pct)+(completed?'<div class="goal-completed-badge" style="position:relative;top:auto;right:auto;margin-top:8px">✓ Постигнато!</div>':'')+
+        '</div><div class="goal-progress-overlay"><div class="goal-progress-bar-wrap"><div class="goal-progress-bar" style="width:'+pct+'%"></div></div><div class="goal-progress-text"><span>'+pct+'%</span><span>'+fm(remaining)+' остават</span></div></div></div>';
+    }
+    
+    html+='<div class="goal-card'+(completed?" completed":"")+'" id="goal-'+g.id+'">'+imgHtml+
+      '<div class="goal-body">'+
+      '<div class="goal-name">'+g.emoji+' '+g.name+'</div>'+
+      (deadlineText?'<div class="goal-meta"><span class="goal-deadline '+deadlineCls+'">📅 '+deadlineText+'</span></div>':'')+
+      '<div class="goal-stats">'+
+      '<div class="goal-stat"><div class="goal-stat-lbl">Спестено</div><div class="goal-stat-val">'+fm(g.saved)+'</div></div>'+
+      '<div class="goal-stat"><div class="goal-stat-lbl">Цел</div><div class="goal-stat-val">'+fm(g.target)+'</div></div>'+
+      '<div class="goal-stat"><div class="goal-stat-lbl">'+(dailyNeeded?"На ден":"Месечно")+'</div><div class="goal-stat-val">'+(dailyNeeded||fm(g.monthlyAvg||0))+'</div></div>'+
+      '</div>'+
+      (futureSelf?'<div style="font-size:12px;color:var(--green);margin-bottom:10px;font-weight:500">🚀 '+futureSelf+'</div>':'')+
+      '<div class="goal-actions">'+
+      '<button class="goal-action-btn primary" data-goal="'+g.id+'" data-action="add">+ Добави</button>'+
+      '<button class="goal-action-btn" data-goal="'+g.id+'" data-action="withdraw">Тегли</button>'+
+      '<button class="goal-action-btn" data-goal="'+g.id+'" data-action="edit">✏</button>'+
+      '</div>'+
+      '</div></div>';
+  });
+
+  // Compounding
+  if(totalSaved>0){
+    html+='<div class="compound-card"><div class="compound-title">Compounding (5% годишно)</div><div class="compound-rows">';
+    [1,2,3,5].forEach(function(yr){
+      var future=totalSaved*Math.pow(1.05,yr);
+      html+='<div class="compound-row"><div class="compound-year">След '+yr+(yr===1?" година":" години")+'</div><div class="compound-amt">'+fm(future)+'</div></div>';
+    });
+    html+='</div></div>';
+  }
+
+  body.innerHTML=html;
+  
+  // Bind goal action buttons
+  body.querySelectorAll(".goal-action-btn").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var gid=btn.dataset.goal,action=btn.dataset.action;
+      if(action==="add")openSavMoneyModal(gid,"add");
+      else if(action==="withdraw")openSavMoneyModal(gid,"withdraw");
+      else if(action==="edit")openSavGoalModal(gid);
+    });
+  });
+}
+
+function renderPiggy(pct){
+  var fillH=Math.round(pct*0.6);
+  var fillY=60-fillH;
+  return '<svg class="piggy-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">'+
+    '<defs><clipPath id="piggyClip"><ellipse cx="50" cy="55" rx="28" ry="25"/></clipPath></defs>'+
+    '<ellipse cx="50" cy="55" rx="30" ry="27" fill="none" stroke="#10B981" stroke-width="2"/>'+
+    '<rect x="22" y="'+fillY+'" width="56" height="'+(fillH+25)+'" fill="#10B98130" clip-path="url(#piggyClip)"/>'+
+    '<circle cx="68" cy="42" r="8" fill="none" stroke="#10B981" stroke-width="2"/>'+
+    '<circle cx="70" cy="40" r="1.5" fill="#10B981"/>'+
+    '<path d="M38 42 Q50 36 62 42" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '<path d="M36 70 Q32 80 28 82" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '<path d="M44 72 Q42 82 40 84" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '<path d="M56 72 Q58 82 60 84" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '<path d="M64 70 Q68 80 72 82" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '<text x="50" y="58" text-anchor="middle" font-size="10" font-weight="700" fill="#10B981">'+pct+'%</text>'+
+    '<path d="M46 28 L50 22 L54 28" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>'+
+    '</svg>';
+}
+
+function savStreak(goals){
+  var months=new Set();
+  goals.forEach(function(g){
+    if(g.history)g.history.forEach(function(h){if(h.amount>0)months.add(h.date.slice(0,7));});
+  });
+  var sorted=Array.from(months).sort().reverse();
+  var streak=0,d=new Date();
+  for(var i=0;i<sorted.length;i++){
+    var expected=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+    if(sorted[i]===expected){streak++;d.setMonth(d.getMonth()-1);}
+    else break;
+  }
+  return streak;
+}
+
+function savLevel(goals){
+  var total=goals.reduce(function(a,g){return a+g.saved;},0);
+  var completed=goals.filter(function(g){return g.saved>=g.target;}).length;
+  var streak=savStreak(goals);
+  var score=Math.floor(total/100)+completed*10+streak*5;
+  var levels=[
+    {level:1,icon:"🌱",name:"Начинаещ",min:0,max:50},
+    {level:2,icon:"💪",name:"Дисциплиниран",min:50,max:150},
+    {level:3,icon:"🔥",name:"Мотивиран",min:150,max:300},
+    {level:4,icon:"💎",name:"Финансов майстор",min:300,max:500},
+    {level:5,icon:"👑",name:"Легенда",min:500,max:999999}
+  ];
+  var current=levels[0];
+  for(var i=0;i<levels.length;i++){if(score>=levels[i].min)current=levels[i];}
+  var pct=current.max<999999?Math.min(Math.round((score-current.min)/(current.max-current.min)*100),100):100;
+  var nextLvl=levels[Math.min(current.level,levels.length-1)];
+  var next=current.level<5?"До "+nextLvl.name+": "+(nextLvl.min-score)+" точки":"Максимално ниво!";
+  return {level:current.level,icon:current.icon,name:current.name,pct:pct,next:next};
+}
+
+function savPsychBanner(goals,total){
+  if(!goals.length)return null;
+  var msgs=[];
+  var lastMonth=new Date();lastMonth.setMonth(lastMonth.getMonth()-1);
+  var lastMonthKey=lastMonth.getFullYear()+"-"+String(lastMonth.getMonth()+1).padStart(2,"0");
+  var addedLastMonth=false;
+  goals.forEach(function(g){if(g.history)g.history.forEach(function(h){if(h.date.startsWith(lastMonthKey)&&h.amount>0)addedLastMonth=true;});});
+  if(!addedLastMonth&&goals.length>0){msgs.push("Миналия месец не добави нищо. Всяко закъснение отдалечава целта ти. Добави сега — дори малко.");}
+  var richGoal=goals.reduce(function(a,b){return b.saved>a.saved?b:a;},goals[0]);
+  var pct=richGoal.target>0?Math.round(richGoal.saved/richGoal.target*100):0;
+  if(pct>0&&pct<100){var daily=Math.ceil((richGoal.target-richGoal.saved)/30);msgs.push("Само <span class='psych-highlight'>€"+daily+" на ден</span> = целта "+richGoal.emoji+" "+richGoal.name+" след 1 месец.");}
+  if(total>0){var future=Math.round(total*Math.pow(1.05,3));msgs.push("Спестеното ти днес (<span class='psych-highlight'>"+fm(total)+"</span>) ще стане <span class='psych-highlight'>"+fm(future)+"</span> след 3 години без да правиш нищо.");}
+  return msgs.length?msgs[Math.floor(Math.random()*msgs.length)]:null;
+}
+
+function openSavGoalModal(gid){
+  var goals=savDb();
+  var g=gid?goals.find(function(x){return x.id===gid;}):null;
+  savCurrentGoalId=gid||null;
+  document.getElementById("sav-modal-title").textContent=g?"Редактирай цел":"Нова цел";
+  var emojis=["🏠","🚗","✈️","💻","🦷","📱","🎓","💍","🛥️","🎸","🏋️","🌍"];
+  var emojiHtml=emojis.map(function(e){return '<button class="cbtn emoji-pick'+(g&&g.emoji===e?" active":"")+((!g&&e==="🎯")?" active":"")+'" data-emoji="'+e+'" style="font-size:20px;padding:10px 5px">'+e+'</button>';}).join("");
+  var imgPreview=g&&g.img?'<div class="img-preview-wrap"><img src="'+g.img+'"><button class="img-remove" id="sav-img-remove">×</button></div>':'';
+  document.getElementById("sav-modal-body").innerHTML=
+    '<div class="cgrid" style="margin-bottom:14px">'+emojiHtml+'</div>'+
+    '<span class="sav-label">Название</span>'+
+    '<input type="text" class="sav-input" id="sav-goal-name" placeholder="н.р. Нов скенер" value="'+(g?g.name:"")+'">'+
+    '<span class="sav-label">Целева сума (€)</span>'+
+    '<input type="number" class="sav-input" id="sav-goal-target" placeholder="5000" value="'+(g?g.target:"")+'">'+
+    '<span class="sav-label">Краен срок</span>'+
+    '<input type="date" class="sav-input" id="sav-goal-deadline" value="'+(g&&g.deadline?g.deadline:"")+'">'+
+    '<span class="sav-label">Снимка на целта</span>'+
+    (imgPreview||'<div class="img-pick-btn" id="sav-img-pick-btn"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Избери от галерията</div>')+
+    '<button class="sav-green-btn" id="sav-goal-save-btn">'+(g?"Запази промените":"Създай цел")+'</button>'+
+    (g?'<button id="sav-goal-del-btn" style="width:100%;margin-top:8px;padding:12px;background:none;border:0.5px solid #EF444433;border-radius:14px;color:#EF4444;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font)">Изтрий целта</button>':'');
+
+  // Emoji picker
+  document.querySelectorAll(".emoji-pick").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".emoji-pick").forEach(function(x){x.classList.remove("active");});b.classList.add("active");});});
+  
+  // Image picker
+  var pickedImg=g?g.img:null;
+  var pickBtn=document.getElementById("sav-img-pick-btn");
+  if(pickBtn){pickBtn.addEventListener("click",function(){document.getElementById("sav-img-input").click();});}
+  document.getElementById("sav-img-input").onchange=function(e){
+    var file=e.target.files[0];if(!file)return;
+    var r=new FileReader();r.onload=function(){
+      pickedImg=r.result;
+      var mb=document.getElementById("sav-modal-body");
+      var old=mb.querySelector(".img-pick-btn")||mb.querySelector(".img-preview-wrap");
+      if(old){var wrap=document.createElement("div");wrap.className="img-preview-wrap";wrap.innerHTML='<img src="'+pickedImg+'"><button class="img-remove" id="sav-img-remove">×</button>';old.replaceWith(wrap);document.getElementById("sav-img-remove").addEventListener("click",function(){pickedImg=null;wrap.replaceWith(Object.assign(document.createElement("div"),{className:"img-pick-btn",innerHTML:'<svg viewBox="0 0 24 24" style="width:32px;height:32px;stroke:#10B981;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Избери от галерията',onclick:function(){document.getElementById("sav-img-input").click();}}));});}
+    };r.readAsDataURL(file);
+  };
+  var removeBtn=document.getElementById("sav-img-remove");
+  if(removeBtn){removeBtn.addEventListener("click",function(){pickedImg=null;});}
+
+  document.getElementById("sav-goal-save-btn").addEventListener("click",function(){
+    var name=document.getElementById("sav-goal-name").value.trim();
+    var target=parseFloat(document.getElementById("sav-goal-target").value)||0;
+    var deadline=document.getElementById("sav-goal-deadline").value||null;
+    var emoji=document.querySelector(".emoji-pick.active")?document.querySelector(".emoji-pick.active").dataset.emoji:"🎯";
+    if(!name||!target){showToast("Попълни всички полета");return;}
+    var goals=savDb();
+    if(savCurrentGoalId){
+      var idx=goals.findIndex(function(x){return x.id===savCurrentGoalId;});
+      if(idx>-1){goals[idx].name=name;goals[idx].target=target;goals[idx].deadline=deadline;goals[idx].emoji=emoji;if(pickedImg)goals[idx].img=pickedImg;}
+    }else{
+      goals.push({id:"g"+Date.now(),name:name,target:target,saved:0,deadline:deadline,emoji:emoji,img:pickedImg||null,history:[],monthlyAvg:0,createdAt:new Date().toISOString()});
+    }
+    savSw(goals);
+    document.getElementById("sav-goal-modal").classList.remove("open");
+    renderSavings();showToast("Запазено");
+  });
+  var delBtn=document.getElementById("sav-goal-del-btn");
+  if(delBtn){delBtn.addEventListener("click",function(){if(!confirm("Изтриване на целта?"))return;var goals=savDb();savSw(goals.filter(function(x){return x.id!==savCurrentGoalId;}));document.getElementById("sav-goal-modal").classList.remove("open");renderSavings();showToast("Изтрито");});}
+  document.getElementById("sav-goal-modal").classList.add("open");
+}
+
+function openSavMoneyModal(gid,mode){
+  savMoneyGoalId=gid;savMoneyMode=mode;
+  var goals=savDb();var g=goals.find(function(x){return x.id===gid;});
+  if(!g)return;
+  document.getElementById("sav-money-title").textContent=mode==="add"?"Добави пари към: "+g.emoji+" "+g.name:"Тегли от: "+g.emoji+" "+g.name;
+  document.getElementById("sav-money-body").innerHTML=
+    '<span class="sav-label">'+(mode==="add"?"Сума за добавяне (€)":"Сума за теглене (€)")+'</span>'+
+    '<input type="number" class="sav-input" id="sav-money-amt" placeholder="0.00" step="0.01" min="0" inputmode="decimal">'+
+    (mode==="add"?'<span class="sav-label" style="margin-top:4px">Или въведи нетна заплата и % за спестяване</span><div style="display:flex;gap:8px"><input type="number" class="sav-input" id="sav-net-salary" placeholder="Нетна заплата €" style="flex:2"><input type="number" class="sav-input" id="sav-save-pct" placeholder="%" min="1" max="100" style="flex:1"></div><button class="goal-action-btn" id="sav-calc-btn" style="margin-bottom:10px;width:100%">Изчисли</button>':'')+
+    '<button class="sav-green-btn" id="sav-money-confirm-btn">'+(mode==="add"?"Добави":"Тегли")+'</button>';
+
+  var calcBtn=document.getElementById("sav-calc-btn");
+  if(calcBtn){calcBtn.addEventListener("click",function(){var salary=parseFloat(document.getElementById("sav-net-salary").value)||0;var pct=parseFloat(document.getElementById("sav-save-pct").value)||20;if(salary>0){document.getElementById("sav-money-amt").value=(salary*pct/100).toFixed(2);}});} 
+
+  document.getElementById("sav-money-confirm-btn").addEventListener("click",function(){
+    var amt=parseFloat(document.getElementById("sav-money-amt").value)||0;
+    if(amt<=0){showToast("Въведи сума");return;}
+    var goals=savDb();var idx=goals.findIndex(function(x){return x.id===savMoneyGoalId;});
+    if(idx<0)return;
+    if(mode==="add"){
+      goals[idx].saved+=amt;
+      goals[idx].history=goals[idx].history||[];
+      goals[idx].history.push({date:new Date().toISOString().split("T")[0],amount:amt});
+      // Update monthly avg
+      var months={};goals[idx].history.forEach(function(h){var m=h.date.slice(0,7);if(!months[m])months[m]=0;months[m]+=h.amount;});
+      var mvals=Object.values(months);goals[idx].monthlyAvg=mvals.length?mvals.reduce(function(a,b){return a+b;},0)/mvals.length:0;
+      var wasComplete=goals[idx].saved-amt>=goals[idx].target;
+      if(!wasComplete&&goals[idx].saved>=goals[idx].target){triggerConfetti();}
+    }else{
+      goals[idx].saved=Math.max(0,goals[idx].saved-amt);
+      goals[idx].history=goals[idx].history||[];
+      goals[idx].history.push({date:new Date().toISOString().split("T")[0],amount:-amt});
+    }
+    savSw(goals);
+    document.getElementById("sav-money-modal").classList.remove("open");
+    renderSavings();
+    showToast(mode==="add"?"Добавено! 💚":"Изтеглено");
+  });
+  document.getElementById("sav-money-modal").classList.add("open");
+}
+
+function triggerConfetti(){
+  var wrap=document.getElementById("confetti-wrap");
+  wrap.classList.add("show");wrap.innerHTML="";
+  var colors=["#10B981","#34D399","#6EE7B7","#C9A84C","#F0D080","#3B82F6"];
+  for(var i=0;i<80;i++){
+    var c=document.createElement("div");
+    c.style.cssText="position:absolute;width:"+(Math.random()*10+4)+"px;height:"+(Math.random()*10+4)+"px;background:"+colors[Math.floor(Math.random()*colors.length)]+";left:"+(Math.random()*100)+"%;top:-20px;border-radius:"+(Math.random()>0.5?"50%":"2px")+";animation:confettiFall "+(Math.random()*2+1.5)+"s "+Math.random()+"s forwards";
+    wrap.appendChild(c);
+  }
+  setTimeout(function(){wrap.classList.remove("show");wrap.innerHTML="";},4000);
+}
+// ===== END SAVINGS MODULE =====
+
 // ALL EVENT LISTENERS - no onclick in HTML
 document.addEventListener("DOMContentLoaded",function(){
   document.getElementById("nav-welcome").addEventListener("click",function(){goTab("welcome");});
   document.getElementById("nav-entry").addEventListener("click",function(){goTab("entry");});
   document.getElementById("nav-month").addEventListener("click",function(){goTab("month");});
   document.getElementById("nav-hist").addEventListener("click",function(){goTab("hist");});
+  document.getElementById("nav-sav").addEventListener("click",function(){goTab("sav");});
+  document.getElementById("sav-add-goal-btn").addEventListener("click",function(){openSavGoalModal(null);});
+  document.getElementById("sav-goal-modal").addEventListener("click",function(e){if(e.target===document.getElementById("sav-goal-modal"))document.getElementById("sav-goal-modal").classList.remove("open");});
+  document.getElementById("sav-money-modal").addEventListener("click",function(e){if(e.target===document.getElementById("sav-money-modal"))document.getElementById("sav-money-modal").classList.remove("open");});
+  document.getElementById("sav-modal-close-btn").addEventListener("click",function(){document.getElementById("sav-goal-modal").classList.remove("open");});
+  document.getElementById("sav-money-close-btn").addEventListener("click",function(){document.getElementById("sav-money-modal").classList.remove("open");});
+  document.getElementById("ob-next-btn").addEventListener("click",obNext);
   document.getElementById("enter-btn").addEventListener("click",function(){goTab("entry");});
   document.getElementById("prev-day").addEventListener("click",function(){moveDay(-1);});
   document.getElementById("next-day").addEventListener("click",function(){moveDay(1);});
